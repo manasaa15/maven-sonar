@@ -1,5 +1,11 @@
 pipeline {
-    agent none
+    agent any
+      environment {
+        SONARQUBE_URL = 'http://localhost:9000' // Replace with your SonarQube server URL
+        SONARQUBE_TOKEN = 'sqp_1bdeed67e9c23e0d748a8db46579386c5c778a88' // Replace with your SonarQube token
+        SONARQUBE_PROJECT_KEY = 'mavenn' // Replace with your SonarQube project key
+        SONARQUBE_PROJECT_NAME = 'mavenn' // Replace with your SonarQube project name
+    }
     stages {
         stage("Build & SonarQube Analysis") {
             agent {
